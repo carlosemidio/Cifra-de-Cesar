@@ -17,37 +17,19 @@
         <div class="contato">
           <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                  <form class="form-horizontal">
-                  <fieldset>
-                    <!-- Data input-->
-                    <div class="form-group">
-                      <label class="col-md-3 control-label" for="data">Chave:</label>
-                      <div class="col-md-9">
-                        <input id="data" name="email" type="text" class="form-control">
-                      </div>
-                    </div>
-            
+                <div class="col-md-12">
                     <!-- Message body -->
                     <div class="form-group">
-                      <label class="col-md-3 control-label" for="message"></label>
-                      <div class="col-md-9">
                         <textarea class="form-control" id="message" name="message" placeholder="Menssagem a ser descifrada..." rows="5"></textarea>
-                      </div>
                     </div>
             
                     <!-- Form actions -->
                     <div class="form-group">
-                      <div class="col-md-12 text-right">
                         <button type="button" class="btn btn-primary btn-lg btn-enviar" onclick="criptografar()">Descifrar</button>
-                      </div>
                     </div>
-                  </fieldset>
-                  </form>
                 </div>
-                <div class="col-md-6">
-                  <h1>Menssagem descifrada</h1>
-                  <p class="msg"></p>
+                <div class="col-md-12">
+                  <div class="msgs"></div>
                 </div>
               </div>
           </div>
@@ -66,7 +48,11 @@
 
   <script>
 	  function criptografar() {
-  		$(".msg").html(descifrar($("#message").val(), $("#data").val()));
+      $(".msgs").html("");
+
+      for (let index = 0; index < 26; index++) {
+        $(".msgs").append('<div><h1>Chave'+index+'</h1><p>'+descifrar($("#message").val(), index)+'</p></div>');
+      }
 	  }
   </script>
 

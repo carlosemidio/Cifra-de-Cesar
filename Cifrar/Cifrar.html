@@ -17,35 +17,57 @@
         <div class="contato">
           <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <form class="form-horizontal">
                   <fieldset>
                     <!-- Data input-->
                     <div class="form-group">
-                      <label class="col-md-3 control-label" for="data">Chave:</label>
-                      <div class="col-md-9">
-                        <input id="data" name="email" type="text" class="form-control">
-                      </div>
+                      <label for="chave">Chave:</label>
+                      <select class="form-control" id="chave">
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                        <option>25</option>
+                      </select>
                     </div>
             
                     <!-- Message body -->
                     <div class="form-group">
-                      <label class="col-md-3 control-label" for="message"></label>
-                      <div class="col-md-9">
                         <textarea class="form-control" id="message" name="message" placeholder="Menssagem a ser cifrada..." rows="5"></textarea>
-                      </div>
                     </div>
             
                     <!-- Form actions -->
                     <div class="form-group">
-                      <div class="col-md-12 text-right">
+                      <div class="col-md-12 text-left">
                         <button type="button" class="btn btn-primary btn-lg btn-enviar" onclick="criptografar()">Cifrar</button>
                       </div>
                     </div>
                   </fieldset>
                   </form>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <h1>Menssagem criptografada</h1>
                   <p class="msg"></p>
                 </div>
@@ -66,7 +88,7 @@
 
   <script>
 	  function criptografar() {
-		$(".msg").html(cifrar($("#message").val(), $("#data").val()));
+		$(".msg").html(cifrar($("#message").val(), $("#chave").val()));
 	  }
   </script>
 
