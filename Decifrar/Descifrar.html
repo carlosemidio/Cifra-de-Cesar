@@ -18,15 +18,49 @@
           <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <!-- Message body -->
-                    <div class="form-group">
-                        <textarea class="form-control" id="message" name="message" placeholder="Menssagem a ser descifrada..." rows="5"></textarea>
-                    </div>
-            
-                    <!-- Form actions -->
-                    <div class="form-group">
-                        <button type="button" class="btn btn-primary btn-lg btn-enviar" onclick="criptografar()">Descifrar</button>
-                    </div>
+                  <!-- Data input-->
+                  <div class="form-group">
+                    <label for="chave">Chave:</label>
+                    <select class="form-control" id="chave">
+                      <option>Todas ataque força bruta</option>
+                      <option>0</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                      <option>13</option>
+                      <option>14</option>
+                      <option>15</option>
+                      <option>16</option>
+                      <option>17</option>
+                      <option>18</option>
+                      <option>19</option>
+                      <option>20</option>
+                      <option>21</option>
+                      <option>22</option>
+                      <option>23</option>
+                      <option>24</option>
+                      <option>25</option>
+                    </select>
+                  </div>
+                
+                  <!-- Message body -->
+                  <div class="form-group">
+                      <textarea class="form-control" id="message" name="message" placeholder="Menssagem a ser descifrada..." rows="5"></textarea>
+                  </div>
+          
+                  <!-- Form actions -->
+                  <div class="form-group">
+                      <button type="button" class="btn btn-primary btn-lg btn-enviar" onclick="criptografar()">Descifrar</button>
+                  </div>
                 </div>
                 <div class="col-md-12">
                   <div class="msgs"></div>
@@ -50,8 +84,12 @@
 	  function criptografar() {
       $(".msgs").html("");
 
-      for (let index = 0; index < 26; index++) {
-        $(".msgs").append('<div><h1>Chave'+index+'</h1><p>'+descifrar($("#message").val(), index)+'</p></div>');
+      if ($("#chave").val() == "Todas ataque força bruta") {
+        for (let index = 0; index < 26; index++) {
+          $(".msgs").append('<div><h1>Chave'+index+'</h1><p>'+descifrar($("#message").val(), index)+'</p></div>');
+        } 
+      } else {
+        $(".msgs").append('<div><h1>Mensagem clara</h1><p>'+descifrar($("#message").val(), $("#chave").val())+'</p></div>');
       }
 	  }
   </script>
